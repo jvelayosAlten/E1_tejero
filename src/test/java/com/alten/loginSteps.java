@@ -1,5 +1,6 @@
 package com.alten;
 
+import cucumber.api.CucumberOptions;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import io.restassured.response.Response;
@@ -9,18 +10,17 @@ import static io.restassured.RestAssured.given;
 
 public class loginSteps {
 
-    private Response response;
-    private String url;
+    Response response;
+    String url;
+
+
 
     @Given("^I call servicioWebReporting with <user> and <password>$")
-    public void iCallServicioWebReportingWithUserAndPassword(String user, String password) {
-        url = "http:/"+ user + password;
-        response = given().when().get(url);
-        Assert.assertNotNull(response.getCookie("JSESSIONID"));
+    public void iCallServicioWebReportingWithUserAndPassword() {
+
     }
 
     @Then("^The serverStatus return <statusCode>$")
-    public void theServerStatusReturnServerStatus(int statusCode) {
-        Assert.assertEquals(statusCode, response.getStatusCode());
+    public void theServerStatusReturnStatusCode() {
     }
 }

@@ -4,7 +4,15 @@ Feature: LoginFeature
   Scenario Outline: Login with correct user and password
     Given I call servicioWebReporting with <user> and <password>
 
+
+
+
+
+
     Then The serverStatus return <statusCode>
+
+
+
 
     Examples:
     | user      | password  | statusCode |
